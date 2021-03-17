@@ -13,20 +13,24 @@ from linebot.models import (
 )
 import os
 import sys
-import json
-from logging import getLogger, config
+
+
 
 app = Flask(__name__)
 
-ABS_PATH = os.path.dirname(os.path.abspath(__file__))
-with open(ABS_PATH+'/conf.json', 'r') as f:
-    CONF_DATA = json.load(f)
+# 環境変数からchannel_secret・channel_access_tokenを取得
+channel_secret = os.environ['LINE_CHANNEL_SECRET']
+channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
 
-CHANNEL_ACCESS_TOKEN = CONF_DATA['CHANNEL_ACCESS_TOKEN']
-CHANNEL_SECRET = CONF_DATA['CHANNEL_SECRET']
+if channel_secret is None:
+    print('Specify LINE_CHANNEL_SECRET as environment variable.')
+    sys.exit(1)
+if channel_access_token is None:
+    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
+    sys.exit(1)
 
-line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(CHANNEL_SECRET)
+line_bot_api = LineBotApi(channel_access_token)
+handler = WebhookHandler(channel_secret)
 
 
 @app.route("/")
