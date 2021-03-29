@@ -13,14 +13,24 @@ from linebot.models import (
 )
 import os
 import sys
-
+import json
 
 
 app = Flask(__name__)
 
+
+# ファイルから環境変数を取得
+ABS_PATH = os.path.dirname(os.path.abspath(__file__))
+with open(ABS_PATH+'/.env', 'r') as f:
+    CONF_DATA = json.load(f)
+
+channel_secret = CONF_DATA['LINE_CHANNEL_SECRET']
+channel_access_token = CONF_DATA['LINE_CHANNEL_ACCESS_TOKEN']
+
+
 # 環境変数からchannel_secret・channel_access_tokenを取得
-channel_secret = os.environ['LINE_CHANNEL_SECRET']
-channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
+# channel_secret = os.environ['LINE_CHANNEL_SECRET']
+# channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
 
 if channel_secret is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
@@ -33,9 +43,9 @@ line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
 
 
-@app.route("/")
-def hello_world():
-    return "hello world!"
+# @app.route("/")
+# def hello_world():
+#     return "hello world!"
 
 
 @app.route("/callback", methods=['POST'])
