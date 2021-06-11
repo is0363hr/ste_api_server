@@ -1,0 +1,24 @@
+<v-btn
+      class="mx-2"
+      fab
+      dark
+      small
+      color="primary"
+    >
+      ＜
+    </v-btn>
+    <v-slider
+      :max="12"
+      step="1"
+      ticks="always"
+      tick-size="12"
+    ></v-slider>
+    <v-btn
+      class="mx-2"
+      fab
+      dark
+      small
+      color="primary"
+    >
+      ＞
+    </v-btn>

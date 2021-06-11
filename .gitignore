@@ -4,3 +4,5 @@ api_server/linebot.conf
 api_server/logging.conf
 api_server/uwsgi.ini
 .DS_Store
+*.pyc
+flask_api/config/*

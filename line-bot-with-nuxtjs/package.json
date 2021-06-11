@@ -1,0 +1,39 @@
+{
+  "name": "line-bot-with-nuxtjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^7.2.0",
+    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/proxy": "^2.1.0",
+    "bluebird": "^3.7.2",
+    "core-js": "^3.8.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "net": "^1.0.2",
+    "node-cache": "^5.1.2",
+    "nuxt": "^2.14.12",
+    "pino": "^6.11.2",
+    "promise-mysql": "^5.0.3",
+    "python-shell": "^2.0.3",
+    "querystring": "^0.2.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "tls": "0.0.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/vuetify": "^1.11.3"
+  }
+}
